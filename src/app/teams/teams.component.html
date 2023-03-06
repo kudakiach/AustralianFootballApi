@@ -1,0 +1,9 @@
+<div class="col-md-6 offset-md-3">
+    <h2>Select your favourite Team</h2>
+    <form>
+        <select name="team" class="form-control">
+      <option>Choose Favourite</option>
+        <option *ngFor="let team of teams" (click)="favourite(team.id)" value="{{team.id}}">{{team.name}} {{team.id}}</option>
+    </select>
+    </form>
+</div>

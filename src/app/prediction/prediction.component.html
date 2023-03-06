@@ -1,0 +1,13 @@
+<div class="container col-md-8 offset-md-2">
+    <h2>My team Prediction</h2>
+    <div class="row">
+        <div class="col-md-4 p-2" *ngFor="let tip of tips" [class.d-none]="tip.tipteamid != id">
+            <div class="p-3 bg-1" *ngIf="tip.tipteamid == id">
+                <h4><b><span class="team-area col-md-6">{{tip.hteam}}</span> vs <span class="team-area col-md-6">{{tip.ateam}}</span></b></h4>
+                <h6><b>Tip : <span class="text-danger">{{tip.tip}}</span></b></h6>
+                <h6>Source: {{tip.source}}</h6>
+                <h6>Game Round: {{tip.round }}</h6>
+            </div>
+        </div>
+    </div>
+</div>

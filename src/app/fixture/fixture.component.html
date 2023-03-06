@@ -1,0 +1,63 @@
+<h1 class="text-center">Previous match results</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 card mt-3" *ngFor="let game of games" [class.d-none]="game.hteamid != id && game.ateamid != id ">
+            <div class="p-3" *ngIf="game.hteamid==id || game.ateamid==id">
+                <div class="card-header year text-center">
+                    <h6>Venue: {{game.venue}}</h6>
+                    <h6>Date: {{game.date}}</h6>
+
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col-md-6 col-sm-12">
+                        <b>{{game.hteam}}</b>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        <b>{{game.ateam}}</b>
+                    </div>
+                    <div class="col-md-6 col-sm-8 m-auto">
+                        <h4>{{game.hgoals}} -- {{game.agoals}}</h4>
+                    </div>
+                </div>
+
+                <div *ngIf="game.complete == 100 " class="text-center">
+                    <h3 style="color:red" class="mb-3">Final Result</h3>
+                    <h5>Round: {{game.round}}</h5>
+                </div>
+                <div *ngIf="game.complete > 0 && game.complete < 100 ">
+                    <h3 style="color:red">Live Result</h3>
+                    <h4><b>{{game.hteam}}</b>&nbsp;{{game.hgoals}} -- <b>{{game.ateam}}</b>&nbsp;{{game.agoals}}</h4>
+                    <div *ngFor="let ladder of ladders">
+                        {{game.round}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2>My favourite team Winning Venues</h2>
+        <table class="table table-responsive thead-dark">
+            <thead class="">
+                <tr>
+                    <th>Venue</th>
+                    <th>Winner</th>
+                    <th>Home scores</th>
+                    <th>Away Scores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let game of games" [class.d-none]="game.hteamid != id && game.ateamid != id ">
+                    <td *ngIf="game.winnerteamid==id">{{game.venue}}</td>
+                    <td *ngIf="game.winnerteamid==id">{{game.winner}}</td>
+                    <td *ngIf="game.winnerteamid==id" [class.text-success]="game.hscore > game.ascore">{{game.hscore}}</td>
+                    <td *ngIf="game.winnerteamid==id" [class.text-success]="game.hscore < game.ascore">{{game.ascore}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

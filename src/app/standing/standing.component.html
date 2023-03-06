@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Team</th>
+                    <th>Played</th>
+                    <th>Win</th>
+                    <th>Loss</th>
+                    <th>points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let standing of standings" [class.text-danger]="standing.id == id">
+                    <td>{{standing.rank}}</td>
+                    <td>{{standing.name}}</td>
+                    <td>{{standing.played}}</td>
+                    <td>{{standing.wins}}</td>
+                    <td>{{standing.losses}}</td>
+                    <td>{{standing.pts}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

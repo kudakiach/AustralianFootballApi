@@ -1,0 +1,5 @@
+.bg-1 {
+    background-image: url('/assets/upcoming-match-bg.jpg');
+    background-size: cover;
+    color: white;
+}
