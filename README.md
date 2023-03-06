@@ -6,3 +6,7 @@ The application make use of australian soccer league api
 ## Feautures
 - The app is developed using angular
 - Consumes API from https://api.squiggle.com.au/
+
+## Installations
+- Node JS
+- Angular CLI
